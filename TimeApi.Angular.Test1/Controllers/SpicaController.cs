@@ -8,7 +8,7 @@ namespace TimeApi.Angular.Test1.Controllers
     [Route("[controller]")]
     public class SpicaController : ControllerBase
     {
-        //private TimeApi.Console.Client.Client.SpicaClient cs;
+        private TimeApi.Console.Client.Client.SpicaClient cs = new TimeApi.Console.Client.Client.SpicaClient();
         /*
         // GET: <SpicaController>
         [HttpGet]
@@ -25,11 +25,10 @@ namespace TimeApi.Angular.Test1.Controllers
 
         // GET: <SpicaController>
         [HttpGet]
-        public IEnumerable<Employee> Get(ISpicaClient spicaClient)
+        public IEnumerable<Employee> Get()
         {
-            spicaClient.getAllEmployees();
             // Get All Employees
-            List<Employee> listOfEmployees = spicaClient.getAllEmployees();
+            List<Employee> listOfEmployees = cs.getAllEmployees();
 
             return listOfEmployees.ToArray();
             /*

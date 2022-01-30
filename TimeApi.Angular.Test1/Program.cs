@@ -44,14 +44,9 @@ app.Run();
 
 public interface ISpicaClient
 {
-    //public static AuthenticationHeaderValue GenerateClientAuthorizationHeader(string apiKey)
-    //public static void ReLogin();
-    //public static void LoginWithUsername(String url, string endpoint)
-    //public static bool isTokenValid(double validityTreshold)
     public bool setSession();
     public List<Employee> getAllEmployees();
     public List<Employee> getAllEmployeesByProperties(Employee employee);
     public bool AddNewEmployee(Employee employee);
-    //public static bool PublicInstancePropertiesEqual<T>(T self, T to, params string[] ignore) where T : class
     public List<Employee> getAllEmployeesByPresence(int orgUnit, bool showInactiveEmployees, DateTime dateTime);
 }

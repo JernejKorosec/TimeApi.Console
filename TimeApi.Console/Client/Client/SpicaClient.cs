@@ -11,14 +11,14 @@ using TimeApi.Console.Client.Enum;
 
 namespace TimeApi.Console.Client.Client
 {
-    public class SpicaClient
+    public class SpicaClient : ISpicaClient
     {
         public static HttpClient httpClient = new HttpClient();
         private static RequestCredential requestCredential = new RequestCredential();
         private static int TokenTimeout = (60 * 20 - 30);
         static SpicaClient()
         {
-
+            ReLogin(); //FIXME
         }
         public static AuthenticationHeaderValue GenerateClientAuthorizationHeader(string apiKey)
         {
@@ -31,7 +31,6 @@ namespace TimeApi.Console.Client.Client
                     }
             return new AuthenticationHeaderValue(TokenAuthentication.Scheme, apiKey);
         }
-
         public static void ReLogin()
         {
             System.Console.WriteLine("ReLogin()");
@@ -87,7 +86,6 @@ namespace TimeApi.Console.Client.Client
             return isTokenValid(TokenTimeout);
             //SpicaClient.httpClient.DefaultRequestHeaders.Authorization = GenerateClientAuthorizationHeader(Api.key);
         }
-
         public List<Employee> getAllEmployees()
         {
             string str = "empty";
@@ -133,9 +131,6 @@ namespace TimeApi.Console.Client.Client
             }
             return null;
         }
-
-
-
         public List<Employee> getAllEmployeesByProperties(Employee employee)
         {
             string str = "empty";
@@ -214,7 +209,6 @@ namespace TimeApi.Console.Client.Client
             }
             return self == to;
         }
-
         public List<Employee> getAllEmployeesByPresence(int orgUnit, bool showInactiveEmployees, DateTime dateTime)
         {
             if (!isTokenValid(TokenTimeout))

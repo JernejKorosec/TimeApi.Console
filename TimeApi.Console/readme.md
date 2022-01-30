@@ -6,9 +6,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/jernejkorosec/">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
   <h3 align="center">Spica</h3>
 </div>
 
@@ -20,9 +17,7 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+
     </li>
   </ol>
 </details>

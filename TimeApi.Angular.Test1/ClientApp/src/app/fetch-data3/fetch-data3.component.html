@@ -1,9 +1,15 @@
 <h1 id="tableLabel">Spica Employees</h1>
 
-<p>Vsi zaposleni ki so prisotni</p>
+<p>Vsi zaposleni</p>
 
 <p *ngIf="!employees"><em>Loading...</em></p>
 
+mat-stroked-button
+
+<div>
+  <button (click)="addNewUser()">Add</button>
+  <button (click)="searchForUser()">Search</button>
+</div>
 <!--
 
   Id: number;

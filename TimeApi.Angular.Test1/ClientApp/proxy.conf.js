@@ -8,6 +8,8 @@ const PROXY_CONFIG = [
     context: [
       "/weatherforecast", //endpoint
       "/spica",           //endpoint
+      "/employee",        //endpoint
+      "/presence",        //endpoint
    ],
     target: target,
     secure: false

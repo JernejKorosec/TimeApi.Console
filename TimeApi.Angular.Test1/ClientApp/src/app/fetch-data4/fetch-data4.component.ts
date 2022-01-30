@@ -1,39 +1,27 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-@Component({
-  selector: 'app-fetch-data2',
-  templateUrl: './fetch-data2.component.html'
-})
-export class FetchDataComponent2 {  // FIXME:
-  //spicavalues: Spica[] = [];
-  employees: Employee[] = [];
-  /*
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Spica[]>(baseUrl + 'spica').subscribe(result => {
-      this.spicavalues = result;
-    }, error => console.error(error));
-  }
-  */
 
+@Component({
+  selector: 'app-fetch-data4',
+  templateUrl: './fetch-data4.component.html'
+})
+
+
+export class FetchDataComponent4 {  // FIXME:
+  /*
+  employees: Employee[] = [];
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Employee[]>(baseUrl + 'presence').subscribe(result => {
       this.employees = result;
     }, error => console.error(error));
-  }
-
-
-
-
-
-
+  }*/
 }
-
+/*
 interface Spica {
   value1: string;
   value2: string;
 }
-
 
 interface Employee {
   Id: number;
@@ -74,3 +62,4 @@ interface Employee {
   InternalField5: object;
   CurrentWorkingSchemeId: number;
 }
+*/

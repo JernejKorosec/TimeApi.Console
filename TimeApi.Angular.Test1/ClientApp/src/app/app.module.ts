@@ -9,7 +9,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { FetchDataComponent2 } from './fetch-data2/fetch-data2.component'; // FIXME:
+import { FetchDataComponent2 } from './fetch-data2/fetch-data2.component'; // FIXME:Vsi zaposleni ki so prisotni /presence endpoint
+import { FetchDataComponent3 } from './fetch-data3/fetch-data3.component'; // FIXME:Vsi zaposleni, sortiranje dodajanje /employee endpoint
+import { FetchDataComponent4 } from './fetch-data4/fetch-data4.component'; // FIXME:
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FetchDataComponent2 } from './fetch-data2/fetch-data2.component'; // FI
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    FetchDataComponent2 // FIXME:
+    FetchDataComponent2,  // FIXME:Vsi zaposleni ki so prisotni /presence endpoint
+    FetchDataComponent3, // FIXME:Vsi zaposleni, sortiranje dodajanje /employee endpoint
+    FetchDataComponent4 // FIXME:
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +32,9 @@ import { FetchDataComponent2 } from './fetch-data2/fetch-data2.component'; // FI
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'fetch-data2', component: FetchDataComponent2 },  // FIXME:
+      { path: 'fetch-data2', component: FetchDataComponent2 },   // FIXME:Vsi zaposleni ki so prisotni /presence endpoint
+      { path: 'fetch-data3', component: FetchDataComponent3 },  // FIXME:Vsi zaposleni, sortiranje dodajanje /employee endpoint
+      { path: 'fetch-data4', component: FetchDataComponent4 },  // FIXME:
     ])
   ],
   providers: [],

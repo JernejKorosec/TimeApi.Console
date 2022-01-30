@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "c88b9046-992f-47a1-9ba0-77120af73733",
+		"name": "Spica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BASIC",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": []
+				},
+				{
+					"name": "http://rdweb.spica.com:5213/timeapi/",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "SpicaToken 87F262C4-7FA6-46D3-880D-2F7E15B4F204",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://rdweb.spica.com:5213/timeapi/",
+							"protocol": "http",
+							"host": [
+								"rdweb",
+								"spica",
+								"com"
+							],
+							"port": "5213",
+							"path": [
+								"timeapi",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ADVANCED",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "1 Get Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"bodyData = JSON.parse(responseBody);\r",
+											"jsTokenValue = bodyData.Token;\r",
+											"\r",
+											"pm.environment.set(\"TokenVariable\", jsTokenValue);\r",
+											"pm.environment.set(\"FullAuthToken\", \"SpicaToken 87F262C4-7FA6-46D3-880D-2F7E15B4F204:\"+jsTokenValue);\r",
+											"\r",
+											"console.log(\"Tvoj Token za sejo je :\"+ pm.environment.get(\"TokenVariable\"));\r",
+											"console.log(\"Polni Token je:\"+ pm.environment.get(\"FullAuthToken\"));\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SpicaToken 87F262C4-7FA6-46D3-880D-2F7E15B4F204",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"Username\": \"demo\",\r\n\"Password\": \"demo\",\r\n\"Sid\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/timeapi/Session/GetSession",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"timeapi",
+										"Session",
+										"GetSession"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2 Create authorization header",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(\"Tvoj Token za sejo je prebran iz :\"+ pm.environment.get(\"TokenVariable\"));\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// SpicaToken 87F262C4-7FA6-46D3-880D-2F7E15B4F204:JG0WQEKCRRAPKDZH9Y2W\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{FullAuthToken}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/timeapi/Session/GetSession",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"timeapi",
+										"Session",
+										"GetSession"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3 Get Employee",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{FullAuthToken}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/timeapi/employee",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"timeapi",
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4 Add Employee",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{FullAuthToken}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"LastName\": \"Albie123\",\r\n\"FirstName\": \"Delacruz123\",\r\n\"MiddleName\": \"Von\",\r\n\"City\": \"New York City\",\r\n\"Phone\": \"66 77 88\",\r\n\"Address\": \"1600 Pennsylvania Ave NW\",\r\n\"State\": \"New York\",\r\n\"Fax\": \"111-222-333\",\r\n\"ReferenceId\": \"12345\",\r\n\"Birth\": \"1.1.2000 0:00:00\",\r\n\"WorkingSchemeType\": 2,\r\n\"Occupation\": \"President\",\r\n\"Unit3\": \"Unit3\",\r\n\"Unit2\": \"Unit2\",\r\n\"Unit1\": \"Unit1\",\r\n\"Email\": \"Albie@spica.com\",\r\n\"Other\": \"sLOVEvenia\",\r\n\"MobilePhone\": \"666-777-888\",\r\n\"OrganizationalUnitId\": 10000013,\r\n\"AdditionalField1\": \"Note 1\",\r\n\"AdditionalField2\": \"Note 2\",\r\n\"AdditionalField3\": \"Note 3\",\r\n\"AdditionalField4\": \"Note 4\",\r\n\"AdditionalField5\": \"Note 5\",\r\n\"AdditionalField6\": \"Note 6\",\r\n\"AdditionalField7\": \"Note 7\",\r\n\"AdditionalField8\": \"Note 8\",\r\n\"AdditionalField9\": \"Note 9\",\r\n\"AdditionalField10\": \"Note 10\",\r\n\"Active\": true,\r\n\"CurrentWorkingSchemeId\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/timeapi/employee",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"timeapi",
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 Get Employee by propety",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{FullAuthToken}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/TimeApi/Employee?firstname=Delacruz&lastname=Albie",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"TimeApi",
+										"Employee"
+									],
+									"query": [
+										{
+											"key": "firstname",
+											"value": "Delacruz"
+										},
+										{
+											"key": "lastname",
+											"value": "Albie"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 Get Presence by OrgUnitId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var moment = require('moment');\r",
+											"\r",
+											"pm.environment.set('CurrentTimeStamp', moment().format((\"MM.DD.YYYY HH:MM:SS\")));\r",
+											"\r",
+											"//3.3.2019 1:54:38\r",
+											"// 29.1.2022 18:43:00"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{FullAuthToken}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://rdweb.spica.com:5213/TimeApi/Presence?TimeStamp=29.1.2022 18:43:00&OrgUnitID=10000000&showInactiveEmployees=false",
+									"protocol": "http",
+									"host": [
+										"rdweb",
+										"spica",
+										"com"
+									],
+									"port": "5213",
+									"path": [
+										"TimeApi",
+										"Presence"
+									],
+									"query": [
+										{
+											"key": "TimeStamp",
+											"value": "29.1.2022 18:43:00"
+										},
+										{
+											"key": "OrgUnitID",
+											"value": "10000000"
+										},
+										{
+											"key": "showInactiveEmployees",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "FullAuthVar",
+			"value": "SpicaToken 87F262C4-7FA6-46D3-880D-2F7E15B4F204:{{TokenVariable}}"
+		}
+	]
+}

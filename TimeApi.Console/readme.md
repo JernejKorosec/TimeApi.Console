@@ -17,8 +17,7 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-
-    </li>
+      </li>
   </ol>
 </details>
 
@@ -26,8 +25,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Repo prikazuje način iterativnega razvoja programske opreme,
 vključuje tudi raziskovanje novih ogrodij in vmesne stopnje
@@ -47,9 +44,6 @@ in jih izpostavi lokalno ali pa remote (Po želji)
 za uporabo v SPA Angular aplikaciji (TimeApi.Angular.SPA)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555

@@ -38,9 +38,9 @@ Projekti so MS VS 2022 projekti.
 
 Ključni so sledeči projekti.
 
-- TimeApi.Console
-- TimeApi.WebApi
-- TimeApi.Angular
+- TimeApi.Console (Backend za testiranje API klicev na Spica API)
+- TimeApi.WebApi  (Nepomembno, testiranje)
+- TimeApi.Angular.Test1 (Glavni projekt, uporabljča TimeApi console)
 - TimeApi.Postman
 
 ### TimeApi.Postman
@@ -50,21 +50,8 @@ Postam metode exportirane
 Če samo pogledaš program.cs, postane vse jasno.
 Consumam Spica TimeApi kot je zahteva v nalogi.
 
-### TimeApi.WebApi
-Tu uporabim funkcionalnost uporabe prejšnjega TimeApi.Console
-projekta in sam izpostavim na lastnem web strežniku podane metode.
-Zakaj tak način?
-Zabavno je prestrezati Web klice, del kode je že spisan za testiranje
-APIja od Spice kar mi je zaradi dokumentacije vzelo 3 dni.
-Lahko rečem da sem dovolj v Apiju, da ostale zadeve lahko dovolj hitro
-doprogramiram, šlo je bolj za spoznavanje API-ja kako deluje.
-Spisal sem tudi postman metode za testiranje klicov, (TimeApi.Postman),
-prav tako bi lahko uporabil več clientov in združil več klicev.
-
-Način je dovolj generičen da deluje na .net 6 Win in Ubuntu.
-
-### TimeApi.Angular
-Angular SPA za TimeApiWebApi
+### TimeApi.Angular.Test1
+Angular SPA za TimeApi.Console
 Work in progress, Angular sem delal pred leti, mi ni pa problem
 prebrati tudi 400 strani primerov in literature. Drži pa da
 bi to trajalo par dni več. Bom pa v vsakem primeru, eno knjigo sem že kupil
@@ -72,7 +59,7 @@ na amazonu, kupil bom vsaj še ene 3.
 Poznam več prog jezikov privaditi se na določeno sintakso in semantiko
 vzame kakšen dan več. Pa če gre za strojno kodo ali pa frontend ECMAscript
 programiranje v TypeScriptu. Če bi kakšen teden prej vedel stack,
-bi projekt izpilil v nulo.
+bi projekt izpilil v nulo, tudi preformančno z chacheiranjem vrednosti.
 
 
 

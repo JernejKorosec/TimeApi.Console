@@ -8,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ;)
 
-/*
+
 SpicaClient cs = new SpicaClient();
 cs.setSession();
-*/
+
 
 //builder.Services.Add(new ServiceDescriptor(typeof(ISpicaClient), new SpicaClient()));
 builder.Services.AddControllersWithViews();

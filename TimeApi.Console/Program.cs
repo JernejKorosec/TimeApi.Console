@@ -15,7 +15,7 @@ namespace TimeApi.Console
             SpicaClient cs = new SpicaClient();
             
             // Set Session
-            cs.setSession();
+            //cs.setSession();
 
             // Get All Employees
             List<Employee> listOfEmployees = cs.getAllEmployees();

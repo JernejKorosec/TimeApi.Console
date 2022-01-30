@@ -1,0 +1,21 @@
+<h1 id="tableLabel">nekivalues</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!spicavalues"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="spicavalues">
+  <thead>
+    <tr>
+      <th>Value1</th>
+      <th>Value2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let spicavalue of spicavalues">
+      <td>{{ spicavalue.value1 }}</td>
+      <td>{{ spicavalue.value2}}</td>
+      
+    </tr>
+  </tbody>
+</table>

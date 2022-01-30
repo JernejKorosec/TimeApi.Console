@@ -9,7 +9,7 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
+    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => { //https://localhost:44481/weatherforecast   FIXME: to je dejanski url od get metode ki vrne json string
       this.forecasts = result;
     }, error => console.error(error));
   }

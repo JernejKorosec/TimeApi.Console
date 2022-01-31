@@ -26,12 +26,9 @@ body, input[type="text"], button {
 
 .center {
   margin: auto;
-  width: 100%;
+  width: 90%;
   border: 1px solid #afcecf;
   background-color: #d1dbdb;
   padding-left: 20px;
 }
 
-table {
-  width: 100%;
-}

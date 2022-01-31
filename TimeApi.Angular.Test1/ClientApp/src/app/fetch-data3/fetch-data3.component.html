@@ -4,17 +4,22 @@
 
 <p *ngIf="!employees"><em>Loading...</em></p>
 
+
 <!--
-<mat-form-field>
-  <mat-label></mat-label>
-  <input placeholder="Just a placeholder">
-</mat-form-field>
-  -->
-<div>
-  <button (click)="addNewUser()">Add</button>
-  <button (click)="searchForUser()">Search</button>
-</div>
-<!--
+<form formBuilder.group ="searchForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstname">FirstName</label>
+    <input id="firstname" type="text" formControlName="firstname">
+  </div>
+
+  <div>
+    <label for="lastname">LastName</label>
+    <input id="lastname" type="text" formControlName="lastname">
+  </div>
+
+  <button class="button" type="submit">Search</button>
+</form>
+
 
   Id: number;
   LastName: string;

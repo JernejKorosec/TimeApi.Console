@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+//import { ReactiveFormsModule } from '@angular/forms'; // FIXME added
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -21,6 +22,7 @@ import { FetchDataComponent4 } from './fetch-data4/fetch-data4.component'; // FI
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
+  //  ReactiveFormsModule,// FIXME
     FetchDataComponent,
     FetchDataComponent2,  // FIXME:Vsi zaposleni ki so prisotni /presence endpoint
     FetchDataComponent3, // FIXME:Vsi zaposleni, sortiranje dodajanje /employee endpoint
